@@ -31,8 +31,8 @@
 	--palette-light-blue-rgb:	17, 188, 255;
 	--palette-light-blue-hex:	#11bcff;
 	
-	--palette-yellow-rgb:		251, 255, 0;
-	--palette-yellow-hex:		#fbff00;
+	--palette-yellow-rgb:		197, 231, 0;
+	--palette-yellow-hex:		#c5e700;
 	
 	--palette-orange-rgb:		226, 109, 0;
 	--palette-orange-hex:		#e26d00;
@@ -150,9 +150,14 @@ img, picture, svg, video {
 	--background-color: red;
 }
 
-.board .tile .color[color="red"] {--background-color: red;}
-.board .tile .color[color="green"] {--background-color: var(--palette-green-hex);}
-.board .tile .color[color="blue"] {--background-color: blue;}
+.board .tile .color[color="red"]			{--background-color: var(--palette-red-hex);}
+.board .tile .color[color="green"]			{--background-color: var(--palette-green-hex);}
+.board .tile .color[color="blue"]			{--background-color: var(--palette-blue-hex);}
+.board .tile .color[color="light-blue"]		{--background-color: var(--palette-light-blue-hex);}
+.board .tile .color[color="yellow"]			{--background-color: var(--palette-yellow-hex);}
+.board .tile .color[color="orange"]			{--background-color: var(--palette-orange-hex);}
+.board .tile .color[color="violet"]			{--background-color: var(--palette-violet-hex);}
+.board .tile .color[color="brown"]			{--background-color: var(--palette-brown-hex);}
 
 
 
@@ -270,6 +275,7 @@ img, picture, svg, video {
 }
 
 .board .tile.corner.bl .container {
+	position: relative;
 	justify-content: flex-start;
 	align-items: flex-end;
 	padding: 0;
@@ -280,12 +286,48 @@ img, picture, svg, video {
 	justify-content: center;
 	align-items: center;
 	background-color: var(--palette-orange-hex);
+	border: 2px solid #000;
 	width: 70%;
 	height: 70%;
+	border-radius: 0.5em;
 }
 
-.board .tile.corner.bl .container .inside .text {
+.board .tile.corner.bl .container .inside .inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
 	transform: rotate(45deg);
+	overflow: hidden;
+}
+
+.board .tile.corner.bl .container .inside .inner img {
+	width: 60%;
+}
+
+.board .tile.corner.bl .container .outside {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.board .tile.corner.bl .container .outside :nth-child(1) {
+	position: absolute;
+	top: 0;
+	left: -10%;
+	height: 30%;
+	transform: rotate(90deg) translate(50%, 0);
+}
+
+.board .tile.corner.bl .container .outside :nth-child(2) {
+	position: absolute;
+	bottom: -10%;
+	right: 0;
+	width: 70%;
+	height: 30%;
 }
 
 
@@ -295,10 +337,34 @@ img, picture, svg, video {
 	grid-area: 1 / 1
 }
 
+.board .tile.corner.tl .container {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	transform: rotate(-45deg);
+}
+
+.board .tile.corner.tl .container img {
+	width: 50%;
+}
+
 /* Top Right - GO TO JAIL */
 
 .board .tile.corner.tr {
 	grid-area: 1 / 11;
+}
+
+.board .tile.corner.tr .container {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	transform: rotate(45deg);
+}
+
+.board .tile.corner.tr .container img {
+	width: 50%;
 }
 
 
