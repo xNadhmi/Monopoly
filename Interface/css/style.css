@@ -130,42 +130,6 @@ img, picture, svg, video {
 
 /* tiles positions */
 
-.board .tile.corner .container {
-	display: block;
-	text-transform: uppercase;
-	transform: rotate(-45deg);
-	line-height: 90%;
-}
-
-.board .tile.corner .container h2 {
-	font-weight: 600;
-	font-size: 1.2em;
-}
-
-.board .tile.corner .container h3 {
-	font-size: 0.9em;
-}
-
-.board .tile.corner img {
-	width: 80%;
-}
-
-.board .tile.corner.tl {
-	grid-area: 1 / 1
-}
-
-.board .tile.corner.tr {
-	grid-area: 1 / 11
-}
-
-.board .tile.corner.bl {
-	grid-area: 11 / 1
-}
-
-.board .tile.corner.br {
-	grid-area: 11 / 11
-}
-
 .board .tile.left {
 	flex-direction: row;
 }
@@ -260,6 +224,83 @@ img, picture, svg, video {
 	height: calc(var(--card-size) * var(--card-aspect-ratio));
 	border-radius: 0.5em;
 }
+
+
+
+/* Corners */
+
+.board .tile.corner .container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	line-height: 90%;
+}
+
+.board .tile.corner .container h2 {
+	font-weight: 600;
+	font-size: 1.2em;
+}
+
+.board .tile.corner .container h3 {
+	font-size: 0.9em;
+}
+
+
+/* Bottom Right - GO */
+
+.board .tile.corner.br {
+	grid-area: 11 / 11;
+}
+
+.board .tile.corner.br .container {
+	transform: rotate(-45deg);
+}
+
+.board .tile.corner.br img {
+	width: 80%;
+}
+
+
+/* Bottom Left - PRISON */
+
+.board .tile.corner.bl {
+	grid-area: 11 / 1;
+	padding: 0;
+}
+
+.board .tile.corner.bl .container {
+	justify-content: flex-start;
+	align-items: flex-end;
+	padding: 0;
+}
+
+.board .tile.corner.bl .container .inside {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--palette-orange-hex);
+	width: 70%;
+	height: 70%;
+}
+
+.board .tile.corner.bl .container .inside .text {
+	transform: rotate(45deg);
+}
+
+
+/* Top Left - PARKING */
+
+.board .tile.corner.tl {
+	grid-area: 1 / 1
+}
+
+/* Top Right - GO TO JAIL */
+
+.board .tile.corner.tr {
+	grid-area: 1 / 11;
+}
+
 
 
 
