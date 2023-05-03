@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Monopoly</title>
+  </head>
+
+  <body>
+    <main class="board-wrapper">
+      <div class="board">
+        <div class="tile center">
+          <div class="logo">
+            <div class="text">Monopoly</div>
+          </div>
+          <div class="deck community">
+            <h2>Caisse de Communauté</h2>
+            <div class="outline"></div>
+          </div>
+          <div class="deck chance">
+            <h2>Chance</h2>
+            <div class="outline"></div>
+          </div>
+        </div>
+        <div class="tile corner tl">
+          <div class="container">
+            <h3>Parc</h3>
+            <img src="assets/parking.png" alt="in jail" />
+            <h3>Gratuit</h3>
+          </div>
+        </div>
+        <div class="tile corner tr">
+          <div class="container">
+            <h3>Allez En</h3>
+            <img src="assets/go_to_jail.png" alt="in jail" />
+            <h3>Prison</h3>
+          </div>
+        </div>
+        <div class="tile corner bl">
+          <div class="container">
+            <div class="inside">
+              <div class="inner">
+                <h3>En</h3>
+                <img src="assets/in_jail.png" alt="in jail" />
+                <h3>Prison</h3>
+              </div>
+            </div>
+            <div class="outside">
+              <h3>Simple</h3>
+              <h3>Visite</h3>
+            </div>
+          </div>
+        </div>
+        <div class="tile corner br">
+          <div class="container">
+            <h2>Départ</h2>
+            <h3>Recevez €200 chaque fois que vous passez ici.</h3>
+          </div>
+          <img src="assets/go_arrow.png" />
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE C012</div>
+            <div class="price">300€</div>
+          </div>
+          <div class="color" color="red"></div>
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">CHANCE</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE C013</div>
+            <div class="price">300€</div>
+          </div>
+          <div class="color" color="red"></div>
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE C014</div>
+            <div class="price">350€</div>
+          </div>
+          <div class="color" color="red"></div>
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">NEBULA BDE</div>
+            <div class="price">500 €</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE A111</div>
+            <div class="price">350€</div>
+          </div>
+          <div class="color" color="yellow"></div>
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE A112</div>
+            <div class="price">350€</div>
+          </div>
+          <div class="color" color="yellow"></div>
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">PAYER TON CAFE</div>
+            <div class="price">100€</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile top">
+          <div class="container">
+            <div class="name">SALLE A113</div>
+            <div class="price">400€</div>
+          </div>
+          <div class="color" color="yellow"></div>
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">BUREAU Communication</div>
+            <div class="price">300€</div>
+          </div>
+          <div class="color" color="orange"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">BUREAU Admission</div>
+            <div class="price">400€</div>
+          </div>
+          <div class="color" color="green"></div>
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">BUREAU Administration</div>
+            <div class="price">250€</div>
+          </div>
+          <div class="color" color="orange"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">BUREAU Pédagogiaue</div>
+            <div class="price">400€</div>
+          </div>
+          <div class="color" color="green"></div>
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">CAISSE COMMUNAUTE</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">CAISSE Communaute</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">BUREAU Gardien</div>
+            <div class="price">250€</div>
+          </div>
+          <div class="color" color="orange"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">BUREAU Coordination</div>
+            <div class="price">450€</div>
+          </div>
+          <div class="color" color="green"></div>
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">SYNERGETIC</div>
+            <div class="price">500 €</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">OPENBOX</div>
+            <div class="price">500 €</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">SALLE C004</div>
+            <div class="price">250€</div>
+          </div>
+          <div class="color" color="violet"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">CHANCE</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">SALLE C003</div>
+            <div class="price">200€</div>
+          </div>
+          <div class="color" color="violet"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">SALLE A105</div>
+            <div class="price">450€</div>
+          </div>
+          <div class="color" color="blue"></div>
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">FRAIS CANTINE</div>
+            <div class="price">250€</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">ASSIDUITE</div>
+            <p>JUSTIFIER TES ABSCENCE</p>
+            <div class="price">200€</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile left">
+          <div class="container">
+            <div class="name">SALLE C002</div>
+            <div class="price">200€</div>
+          </div>
+          <div class="color" color="violet"></div>
+        </div>
+        <div class="tile right">
+          <div class="container">
+            <div class="name">SALLE B101</div>
+            <div class="price">500€</div>
+          </div>
+          <div class="color" color="blue"></div>
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">SALLE A005</div>
+            <div class="price">200€</div>
+          </div>
+          <div class="color" color="light-blue"></div>
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">SALLE A004</div>
+            <div class="price">150€</div>
+          </div>
+          <div class="color" color="light-blue"></div>
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">CHANCE</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">SALLE A003</div>
+            <div class="price">150€</div>
+          </div>
+          <div class="color" color="light-blue"></div>
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">F9 HETIC</div>
+            <div class="price">500 €</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">COMPTABILITE</div>
+            <p>Payer ta Dette</p>
+            <div class="price">200€</div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">FOYER</div>
+            <div class="price">150€</div>
+          </div>
+          <div class="color" color="brown"></div>
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">CAISSE COMMUNAUTE</div>
+            <div class="price"></div>
+          </div>
+          <!-- <div class="color" color="green"></div> -->
+        </div>
+        <div class="tile bottom">
+          <div class="container">
+            <div class="name">AMPHI</div>
+            <div class="price">100€</div>
+          </div>
+          <div class="color" color="brown"></div>
+        </div>
+      </div>
+    </main>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
+    </script>
+
+    <script>
+      (async () => {
+        class WtdRoot extends HTMLElement {
+          constructor() {
+            super();
+
+            this.attachShadow({ mode: "open" });
+          }
+        }
+
+        window.customElements.define("wtd-root", WtdRoot);
+      })();
+    </script>
+    <script>
+      (async () => {
+        class WtdDiv extends HTMLElement {
+          constructor() {
+            super();
+          }
+        }
+
+        window.customElements.define("wtd-div", WtdDiv);
+      })();
+    </script>
+    <script>
+      window.wtdExtensionInjected = true;
+    </script>
+    <wtd-div
+      id="wanteeedContainer"
+      style="position: fixed; top: 0px; right: 0px; z-index: 2147483647"
+      ><wtd-root id="comparator"></wtd-root
+      ><iframe
+        id="wanteeedPanel"
+        data-version="1.54.0"
+        allowtransparency="true"
+        style="
+          background-color: rgb(255, 255, 255);
+          border: none;
+          border-radius: 3px;
+          box-shadow: rgb(181, 181, 181) 1px 1px 3px 2px;
+          clip: auto;
+          display: none;
+          margin-left: auto;
+          margin-right: 12px;
+          margin-top: 12px;
+          position: relative;
+          z-index: 2147483647;
+          height: 1px;
+          width: 1px;
+        "
+      ></iframe></wtd-div
+    ><iframe
+      id="wanteeedTestMaker"
+      data-version="1.54.0"
+      allowtransparency="true"
+      style="
+        border: none;
+        clip: auto;
+        display: none;
+        left: 0px;
+        overflow: hidden;
+        position: fixed;
+        top: 10px;
+        transition: all 0.2s ease-out 0s;
+        z-index: 45739864;
+        height: 1px;
+        width: 1px;
+      "
+    ></iframe
+    ><link href="https://fonts.googleapis.com" rel="preconnect" /><link
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+      crossorigin=""
+    />
+  </body>
+</html>
