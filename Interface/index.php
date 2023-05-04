@@ -1,3 +1,8 @@
+
+<?php
+	include_once("../includes/init.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +16,33 @@
 
 <body>
 	<main class="board-wrapper">
+		<div class="board">
+			<div class="tile center">
+				<div class="logo">
+					<div class="text">
+						Monopoly
+					</div>
+				</div>
+				<div class="deck community">
+					<h2>Caisse de Communauté</h2>
+					<div class="outline"></div>
+				</div>
+				<div class="deck chance">
+					<h2>Chance</h2>
+					<div class="outline"></div>
+				</div>
+			</div>
+			<?php
+				$tiles = dbGetTiles();
+				
+				foreach ($tiles as $tile) {
+					include "../includes/ui-tile.php";
+				}
+			?>
+		</div>
+	</main>
+
+	<main class="board-wrapper" style="display: none">
 		<div class="board">
 			<div class="tile center">
 				<div class="logo">

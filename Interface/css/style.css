@@ -132,10 +132,12 @@ img, picture, svg, video {
 
 .board .tile.left {
 	flex-direction: row;
+	grid-column: 1;
 }
 
 .board .tile.right {
 	flex-direction: row-reverse;
+	grid-column: 11;
 }
 
 .board .tile.bottom {
