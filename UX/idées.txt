@@ -4,9 +4,9 @@ Chance:
 3-Rendez-vous à la salle C014 . Si vous passez par la case départ, recevez 200€
 4-Avancez a la Salle A003. Si vous passez par la case départ, recevez 200
 6-Avancez jusqu’à Nebula BDE, Si vous passez par la case départ, recevez 200€
-7-Vous avez gagné le prix de meilleur etudiant. Recevez 300€
+7-Vous avez gagné le prix de meilleur étudiant. Recevez 300€
 8-La banque vous verse un dividende de 500€
-9-What a Save!!Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.
+9-What a Save!! Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée.
 10-Reculez de trois cases
 11-Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ, ne touchez pas 200€
 12-Faites des réparations dans toutes vos salle 500€.
