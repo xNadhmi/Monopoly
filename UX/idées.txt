@@ -1,0 +1,36 @@
+Chance:
+1-Rendez-vous à la Salle A106
+2-Avancer jusqu’à la case départ
+3-Rendez-vous à la salle C014 . Si vous passez par la case départ, recevez 200€
+4-Avancez a la Salle A003. Si vous passez par la case départ, recevez 200
+6-Avancez jusqu’à Nebula BDE, Si vous passez par la case départ, recevez 200€
+7-Vous avez gagné le prix de meilleur etudiant. Recevez 300€
+8-La banque vous verse un dividende de 500€
+9-What a Save!!Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.
+10-Reculez de trois cases
+11-Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ, ne touchez pas 200€
+12-Faites des réparations dans toutes vos salle 500€.
+13-Amende pour excès de retard  500€
+14-Payez pour frais de scolarité 150€
+15-Amende pour abscence 200€
+
+
+
+Communaute:
+
+1-Placez-vous sur la case départ
+2-Erreur de la comptabilte en votre faveur. Recevez 200€
+3-La venue a la jpo vous rapporte 500€
+4-Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.
+5-Aller en prison. Rendez-vous directement à la prison. Ne franchissez pas par la case départ, ne touchez pas 200€
+6-Retournez à la comptabilite
+7-Recevez votre revenu annuel 500€
+8-C’est votre anniversaire. Chaque joueur doit vous donner 100€
+9-Les contributions vous remboursent la somme de 200€
+10-Payez votre CVEC 200€
+11-Payez une amende de 100 ou bien tirez une carte « CHANCE »
+12-Rendez-vous à l'assoction la plus proche. Si vous passez par la case départ, recevez 200€
+13-Vous avez gagné le deuxième Prix de Beauté. Recevez 300€
+14-Vous héritez 100€
+15-Recevez votre intérêt sur l’emprunt à 7% 250€
+
