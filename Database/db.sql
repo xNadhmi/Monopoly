@@ -38,10 +38,13 @@ CREATE TABLE IF NOT EXISTS tiles (
 CREATE TABLE IF NOT EXISTS cards (
 	id INT AUTO_INCREMENT PRIMARY KEY,											-- Global card id
 	type ENUM("chance", "community") NOT NULL,									-- Holds the type of the
-	name VARCHAR(50) NOT NULL,													-- Holds the name of the card
+	-- name VARCHAR(50) NOT NULL,													-- Holds the name of the card
 	description VARCHAR(250),													-- Holds description of the card, if any
 	action VARCHAR(250) NOT NULL,												-- Holds the action text of the card
 	effect ENUM("money", "position") NOT NULL,									-- Holds the type of the effect of the card
 	value INT DEFAULT 0,														-- Holds the value of the effect, positive or negative
 	target ENUM("current_player", "other_players", "everyone")					-- Holds the card's affected target
 ) ENGINE=INNODB;
+
+INSERT INTO cards (type, description, action, effect, value, target) VALUES
+	("chance", NULL, "Rendez-vous à la Salle A106", "position")
