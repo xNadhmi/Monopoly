@@ -121,6 +121,16 @@ img, picture, svg, video {
 	hyphens: auto;
 }
 
+.board .tile .container .image {
+	/* width: 100%; */
+	height: 50%;
+}
+
+.board .tile .container .image img {
+	/* width: 100%; */
+	height: 100%;
+}
+
 .board .tile .container .price {
 	font-size: 0.8em;
 	font-weight: 700;
@@ -128,7 +138,7 @@ img, picture, svg, video {
 
 .board .tile .color {
 	width: 100%;
-	height: 25%;
+	height: 20%;
 	border-radius: 0.3em;
 	background-color: var(--background-color);
 	--background-color: red;
@@ -154,7 +164,7 @@ img, picture, svg, video {
 }
 
 .board .tile.left .color, .board .tile.right .color {
-	width: 25%;
+	width: 20%;
 	height: 100%;
 
 	background-color: var(--background-color);
