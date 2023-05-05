@@ -68,7 +68,7 @@ INSERT INTO tiles (name, description, price, rent_percentage, bank_sale, type, i
 ("Nebula BDE", NULL, 500, 25, 50, "utility", NULL, 1000),
 ("Chance", NULL, 0, 0, 0, "chance", "chance.png", 1000),
 ("Salle A105", NULL, 450, 20, 50, "street", NULL, 1000),
-("Comptabilité", "Payer les frais de scolarité", 200, 0, 0, "tax", NULL, 1000),
+("Comptabilité", "Payer les frais de scolarité", 200, 0, 0, "tax", "accounting.png", 1000),
 ("Salle B101", NULL, 500, 20, 50, "street", NULL, 1000);
 
 
