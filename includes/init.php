@@ -64,6 +64,11 @@
 				$tile["css-class"] .= " " . "right";
 				$tile["order"] = 12 + 2 * ($tile["id"] - 32);
 			}
+
+			if ($tile["id"] == 1) {$tile["css-class"] = "tile corner br";}
+			elseif ($tile["id"] == 11) {$tile["css-class"] = "tile corner bl";}
+			elseif ($tile["id"] == 21) {$tile["css-class"] = "tile corner tl";}
+			elseif ($tile["id"] == 31) {$tile["css-class"] = "tile corner tr";}
 		}
 
 		return $tiles;

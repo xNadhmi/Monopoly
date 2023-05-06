@@ -121,6 +121,13 @@ img, picture, svg, video {
 	hyphens: auto;
 }
 
+.board .tile .container .description {
+	font-size: 0.7em;
+	word-wrap: break-word;
+	overflow-wrap: anywhere;
+	hyphens: auto;
+}
+
 .board .tile .container .image {
 	display: flex;
 	justify-content: center;
