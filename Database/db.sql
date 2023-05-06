@@ -34,7 +34,7 @@ INSERT INTO tiles (name, description, price, rent_percentage, bank_sale, type, i
 ("Amphithéâtre", NULL, 100, 10, 50, "street", NULL, 1000),
 ("Caisse de Communauté", NULL, 0, 0, 0, "community", "community_chest.png", 1000),
 ("Foyer", NULL, 150, 10, 50, "street", NULL, 1000),
-("Payer son café", "NULL", 200, 0, 0, "tax", NULL, 1000),
+("Payer son café", NULL, 200, 0, 0, "tax", NULL, 1000),
 ("OpenBox", NULL, 500, 15, 50, "utility", "openbox.png", 1000),
 ("Salle A003", NULL, 150, 10, 50, "street", NULL, 1000),
 ("Chance", NULL, 0, 0, 0, "chance", "chance.png", 1000),
