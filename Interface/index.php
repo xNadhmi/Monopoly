@@ -31,6 +31,11 @@
 					<h2>Chance</h2>
 					<div class="outline"></div>
 				</div>
+				<div class="version">
+					<div class="text">édition</div>
+					<img src="/assets/hetic_logo.png" alt="version">
+					<div class="text">HETIC</div>
+				</div>
 			</div>
 			<?php
 				$tiles = dbGetTiles();

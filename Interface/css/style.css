@@ -235,6 +235,10 @@ img, picture, svg, video {
 }
 
 .board .tile.center .deck {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	grid-column: 1 / 3;
     grid-row: 1 / 3;
     transform: rotate(-45deg);
@@ -258,6 +262,33 @@ img, picture, svg, video {
 	border: 2px dashed #080808;
     width: var(--card-size);
 	height: calc(var(--card-size) * var(--card-aspect-ratio));
+	border-radius: 0.5em;
+}
+
+.board .tile.center .version {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	align-self: last baseline;
+    justify-self: first baseline;
+	font-size: 0.8em;
+	gap: 0.5em;
+	padding: 0.5em;
+	margin: 1em;
+    grid-column: 1 / span 2;
+    grid-row: 7;
+	border-radius: 0.5em;
+	background-color: rgba(255,255,255,0.75);
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
+}
+
+.board .tile.center .version .text {
+	font-weight: 600;
+	text-transform: capitalize;
+}
+
+.board .tile.center .version img {
+	height: 3em;
 	border-radius: 0.5em;
 }
 
