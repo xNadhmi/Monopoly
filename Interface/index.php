@@ -15,20 +15,19 @@
 </head>
 
 <body>
+	<?php include "../includes/ui-dashboard.php"; ?>
 	<main class="board-wrapper">
 		<div class="board">
 			<div class="tile center">
 				<div class="logo">
-					<div class="text">
-						Monopoly
-					</div>
+					<div class="text">Monopoly</div>
 				</div>
 				<div class="deck community">
-					<h2>Caisse de Communauté</h2>
+					<h3>Caisse de Communauté</h3>
 					<div class="outline"></div>
 				</div>
 				<div class="deck chance">
-					<h2>Chance</h2>
+					<h3>Chance</h3>
 					<div class="outline"></div>
 				</div>
 				<div class="version">
