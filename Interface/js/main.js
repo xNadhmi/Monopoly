@@ -10,12 +10,13 @@ var monopoly = {
 		{name: "Dé à coudre", path: "/assets/pawns/thimble.png"},
 	],
 	players:					[
-		{name: "Premier Joueur", money: 0, token: {}, spactating: false},
-		{name: "Deuxième Joueur", money: 0, token: {}, spactating: false},
-		{name: "Troisième Joueur", money: 0, token: {}, spactating: true},
-		{name: "Quatrième Joueur", money: 0, token: {}, spactating: true},
+		{id: 0, name: "Premier Joueur", money: 0, avatar: {}, tile: 1, spactating: false},
+		{id: 1, name: "Deuxième Joueur", money: 0, avatar: {}, tile: 1, spactating: false},
+		{id: 2, name: "Troisième Joueur", money: 0, avatar: {}, tile: 1, spactating: true},
+		{id: 3, name: "Quatrième Joueur", money: 0, avatar: {}, tile: 1, spactating: true},
 	],
 	tiles:						[],
+	player_count:				0,
 };
 
 
@@ -55,7 +56,7 @@ function onPageLoad() {
 		img_elem.setAttribute("src", monopoly.valid_tokens[token_id].path);
 		img_elem.setAttribute("alt", monopoly.valid_tokens[token_id].name);
 		token_label.textContent = monopoly.valid_tokens[token_id].name;
-		monopoly.players[player_id].token = monopoly.valid_tokens[token_id];
+		monopoly.players[player_id].avatar = monopoly.valid_tokens[token_id];
 		
 		let spans_nav = div_player.querySelectorAll(".nav span");
 		spans_nav.forEach(span_nav => {
@@ -67,7 +68,7 @@ function onPageLoad() {
 				token_label.textContent = monopoly.valid_tokens[current_token_id].name;
 				
 				div_avatar.setAttribute("token-id", current_token_id);
-				monopoly.players[player_id].token = monopoly.valid_tokens[current_token_id];
+				monopoly.players[player_id].avatar = monopoly.valid_tokens[current_token_id];
 			});
 		});
 
@@ -108,6 +109,7 @@ function onPageLoad() {
 							setTimeout(() => {
 								$(div_preloader).toggleDisplay(false, ["opacity"]);
 								toggleClass(div_board, "loaded", true);
+								document.querySelector(".start-game button").removeAttribute("disabled");
 							}, 1000);
 						}
 					},
@@ -123,6 +125,9 @@ function onPageLoad() {
 		// Start the game
 		monopoly.startGame();
 	});
+
+	// Hidden by default:
+	$(".info-game").toggleDisplay(false);
 }
 window.addEventListener("load", onPageLoad);
 
@@ -167,6 +172,14 @@ monopoly.startGame = function() {
 					console.log(error);
 				}
 			});
+
+			monopoly.player_count++;
+		}
+	});
+	
+	monopoly.players.forEach(player => {
+		if (!player.spactating) {
+			monopoly.placeToken(player);
 		}
 	});
 }
@@ -222,8 +235,43 @@ monopoly.throwDice = function() {
 			div_dice.classList.add("show-" + i);
 		}
 	}
-	// setTimeout(rollDice(), 1000);
 }
+
+
+monopoly.placeToken = function(player) {
+	let div_board = document.querySelector(".board-wrapper .board");
+	let tile = monopoly.tiles[player.tile - 1];
+
+	let div_player = document.createElement("div");
+	div_player.setAttribute("class", "player");
+	div_player.setAttribute("player-id", player.id);
+	div_player.setAttribute("tie-id", player.tile);
+	div_player.innerHTML = `
+		<img class="token" src="${player.avatar.path}" alt="player">
+	`;
+
+	player.token = div_player;
+	div_board.append(div_player);
+
+	monopoly.moveToken(player, tile)
+	
+
+	setTimeout(() => {
+		monopoly.moveToken(monopoly.players[0],  monopoly.tiles[9]);
+	}, 2000);
+}
+
+monopoly.moveToken = function(player, tile) {
+	let offset_top = tile.elem.offsetTop + tile.elem.offsetHeight * (player.id / monopoly.player_count);
+	let offset_left = tile.elem.offsetLeft + tile.elem.offsetWidth * 0.1;
+	$(player.token).animateMove(offset_top, offset_left)
+	
+	setTimeout(() => {
+		player.token.scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});
+	}, 1000);
+	
+}
+
 
 
 
@@ -253,14 +301,48 @@ function toggleClass(element, className, state) {
 }
 
 (function($) {
-	$.fn.toggleDisplay = function(state, propertiesToAnimate = ["opacity"]) {
+	$.fn.toggleDisplay = function(state, propertiesToAnimate = ["opacity"], speed = 300) {
 		let animationProperties = {};
 		let action = (state === undefined) ? "toggle" : (state ? "show" : "hide");
 
-		propertiesToAnimate.forEach(property => {
-			animationProperties[property] = action;
-		});
+		propertiesToAnimate.forEach(property => {animationProperties[property] = action;});
 
-		return this.animate(animationProperties, 300);
+		return this.animate(animationProperties, speed);
 	};
 })(jQuery);
+
+(function($) {
+    $.fn.animateMove = function(newTop, newLeft, speed = 300) {
+        let elem = this;
+        let startPos = { top: parseFloat(elem.css("top")), left: parseFloat(elem.css("left")) };
+        let distance = { top: newTop - startPos.top, left: newLeft - startPos.left };
+        let startTime = null;
+
+        function step(now) {
+            if (!startTime) {
+                startTime = now;
+            }
+
+            let progress = now - startTime;
+            let percent = Math.min(progress / speed, 1);
+            let easedPercent = easeInOutQuad(percent);
+            let newTopPos = startPos.top + distance.top * easedPercent;
+            let newLeftPos = startPos.left + distance.left * easedPercent;
+
+            elem.css({ top: newTopPos + "px", left: newLeftPos + "px" });
+
+            if (percent < 1) {
+                window.requestAnimationFrame(step);
+            }
+        }
+
+        window.requestAnimationFrame(step);
+
+        function easeInOutQuad(x) {
+            return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        }
+
+        return this;
+    };
+})(jQuery);
+

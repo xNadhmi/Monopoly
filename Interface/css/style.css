@@ -121,10 +121,7 @@ body {
 	background-size: cover;
 }
 
-img,
-picture,
-svg,
-video {
+img, picture, svg, video {
 	display: block;
 }
 
@@ -138,22 +135,24 @@ aside {
 	align-items: center;
 	gap: 1em;
 	width: 100%;
+	max-width: 50rem;
 	height: 100%;
 	font-family: "Bubblegum Sans", cursive;
 }
 
-aside>* {
+aside > * {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	gap: 0.5em;
 	width: 100%;
 	padding: 1em;
 	border-radius: 1em;
 	background-color: rgba(var(--palette-board-rgb), 0.9);
 }
 
-aside>*.hidden {
+aside > *.hidden {
 	display: none;
 }
 
@@ -199,6 +198,7 @@ aside>*.hidden {
 	background-color: rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(5px);
 	border-radius: 0.5em;
+	z-index: 5;
 }
 
 .player-selection .player .add span {
@@ -307,6 +307,16 @@ aside>*.hidden {
 	width: 5em;
 	height: 5em;
 	object-fit: contain;
+}
+
+
+
+/* Game info */
+.info-game .active-player, .info-game .dice-throw, .info-game .active-tile {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
 
@@ -717,6 +727,21 @@ aside>*.hidden {
 
 /* Common & Shared*/
 
+/* player token */
+.board .player {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 15;
+}
+
+.board .player img {
+	width: calc(8rem / 3);
+	height: calc(8rem / 3);
+	object-fit: contain;
+	filter: drop-shadow(0 0 2px var(--palette-black-hex));
+}
+
 /* dice */
 .dice-wrapper {
 	position: relative;
@@ -724,50 +749,38 @@ aside>*.hidden {
 
 .dice {
 	position: relative;
-	width: 100px;
-	height: 100px;
+	width: 5em;
+	height: 5em;
 	transform-style: preserve-3d;
 	transition: transform 1s;
 }
 
 .dot {
 	position: absolute;
-	width: 20px;
-	height: 20px;
-	margin: -10px 5px 5px -10px;
-	border-radius: 20px;
-	background-color: #f25f5c;
-	box-shadow: inset 2px 2px #d90429;
-}
-
-.dice-one {
-	position: absolute;
-	left: 150px;
-}
-
-.dice-two {
-	position: absolute;
-	left: -50px;
-
+	width: 1em;
+	height: 1em;
+	margin: -0.5em 0.25em 0.25em -0.5em;
+	border-radius: 1em;
+	background-color: var(--palette-black-hex);
 }
 
 .side {
 	position: absolute;
 	background-color: #ffF;
 	border-radius: 5px;
-	width: 100px;
-	height: 100px;
-	border: 1px solid #e5e5e5;
+	width: 5em;
+	height: 5em;
+	border: 2px solid rgba(0,0,0,0.3);
 	text-align: center;
-	line-height: 2em;
+	box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.4);
 }
 
-.side:nth-child(1) {transform: translateZ(3.1em);}
-.side:nth-child(6) {transform: rotateY(90deg) translateZ(3.1em);}
-.side:nth-child(3) {transform: rotateY(-90deg) translateZ(3.1em);}
-.side:nth-child(4) {transform: rotateX(90deg) translateZ(3.1em);}
-.side:nth-child(5) {transform: rotateX(-90deg) translateZ(3.1em);}
-.side:nth-child(2) {transform: rotateY(-180deg) translateZ(3.1em);}
+.side:nth-child(1) {transform: translateZ(2.5em);}
+.side:nth-child(6) {transform: rotateY(90deg) translateZ(2.5em);}
+.side:nth-child(3) {transform: rotateY(-90deg) translateZ(2.5em);}
+.side:nth-child(4) {transform: rotateX(90deg) translateZ(2.5em);}
+.side:nth-child(5) {transform: rotateX(-90deg) translateZ(2.5em);}
+.side:nth-child(2) {transform: rotateY(-180deg) translateZ(2.5em);}
 
 .show-1 {transform: rotateX(720deg) rotateZ(-720deg);}
 .show-2 {transform: rotateX(-900deg) rotateZ(1080deg);}
@@ -776,40 +789,13 @@ aside>*.hidden {
 .show-4 {transform: rotateX(-810deg) rotateZ(-1080deg);}
 .show-5 {transform: rotateX(450deg) rotateZ(-720deg);}
 
-.two-1, .three-1, .four-1, .five-1, .six-1 {
-	top: 20%;
-	left: 20%;
-}
-
-.four-3, .five-3, .six-4 {
-	top: 20%;
-	left: 80%;
-}
-
-.one-1, .three-2, .five-5 {
-	top: 50%;
-	left: 50%;
-}
-
-.four-2, .five-2, .six-3 {
-	top: 80%;
-	left: 20%;
-}
-
-.two-2, .three-3, .four-4, .five-4, .six-6 {
-	top: 80%;
-	left: 80%;
-}
-
-.six-2 {
-	top: 50%;
-	left: 20%;
-}
-
-.six-5 {
-	top: 50%;
-	left: 80%;
-}
+.two-1, .three-1, .four-1, .five-1, .six-1		{top: 20%; left: 20%;}
+.four-3, .five-3, .six-4						{top: 20%; left: 80%;}
+.one-1, .three-2, .five-5						{top: 50%; left: 50%;}
+.four-2, .five-2, .six-3						{top: 80%; left: 20%;}
+.two-2, .three-3, .four-4, .five-4, .six-6		{top: 80%; left: 80%;}
+.six-2			{top: 50%; left: 20%;}
+.six-5			{top: 50%; left: 80%;}
 
 
 
@@ -822,6 +808,15 @@ span.money {
 span.money::before {
 	content: attr(unit);
 }
+
+
+/* token image */
+img.token {
+	filter: drop-shadow(0 0 8px var(--palette-black-hex));
+	z-index: 0;
+}
+
+
 
 
 
