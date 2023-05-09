@@ -7,5 +7,5 @@ Change **DocumentRoot** [*line ~ 252*] to: **DocumentRoot "YOUR_FILES/Monopoly/I
 Change **Directory** [*line ~ 253*] to: **<Directory "YOUR_FILES/Monopoly/Interface/">**
 
 # Set-up the database:
-## PHPMyAdmin > Create Database named "monopoly"
-## Execute the MySQL code inside "/Database/db.sql"
+## 1. PHPMyAdmin > Create Database named "monopoly"
+## 2. Execute the MySQL code inside "/Database/db.sql"
