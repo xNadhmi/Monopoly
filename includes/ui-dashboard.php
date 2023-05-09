@@ -74,14 +74,14 @@
 
 	<div class="info-game">
 		<div class="active-player">
-			<h3>Tour de <span class="active-name">player</span></h3>
+			<h2>Tour de: <span class="active-name">player</span></h2>
 		</div>
 		<div class="dice-throw">
 			<button theme="blue" onclick="monopoly.throwDice()">Lancez le dé</button>
 			<?php include "../includes/ui-dice.php" ?>
 		</div>
 		<div class="active-tile">
-			<div class="text">Case actuelle: <span class="tile-name">tile</span></div>
+			<div class="text">Case actuelle: <span class="tile-name">null</span></div>
 		<button theme="green" disabled>Acheter</button>
 		</div>
 	</div>

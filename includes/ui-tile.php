@@ -1,4 +1,11 @@
-<div class="<?php echo $tile["css-class"] ?>" id="<?php echo $tile["id"] ?>" style="order: <?php echo $tile["order"] ?>">
+<?php
+	$onclick = "";
+	if ($tile["type"] == "street" || $tile["type"] == "utility") {
+		$onclick = "onclick='monopoly.showTileCard($tile[id])'";
+	}
+?>
+
+<div class="<?php echo $tile["css-class"] ?>" id="<?php echo $tile["id"] ?>" style="order: <?php echo $tile["order"] ?>" <?php echo $onclick ?>>
 	<?php if ($tile["type"] == "go") { ?>
 		<div class="container">
 			<h2><?php echo $tile["name"] ?></h2>

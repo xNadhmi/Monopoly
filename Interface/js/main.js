@@ -10,13 +10,14 @@ var monopoly = {
 		{name: "Dé à coudre", path: "/assets/pawns/thimble.png"},
 	],
 	players:					[
-		{id: 0, name: "Premier Joueur", money: 0, avatar: {}, tile: 1, spactating: false},
-		{id: 1, name: "Deuxième Joueur", money: 0, avatar: {}, tile: 1, spactating: false},
-		{id: 2, name: "Troisième Joueur", money: 0, avatar: {}, tile: 1, spactating: true},
-		{id: 3, name: "Quatrième Joueur", money: 0, avatar: {}, tile: 1, spactating: true},
+		{id: 0, name: "Premier Joueur", money: 0, avatar: {}, tile: 1, spectating: false},
+		{id: 1, name: "Deuxième Joueur", money: 0, avatar: {}, tile: 1, spectating: false},
+		{id: 2, name: "Troisième Joueur", money: 0, avatar: {}, tile: 1, spectating: true},
+		{id: 3, name: "Quatrième Joueur", money: 0, avatar: {}, tile: 1, spectating: true},
 	],
 	tiles:						[],
-	player_count:				0,
+	player_count:				0,				// How many players are playing
+	current_player:				0,				// Index of the current active player
 };
 
 
@@ -135,6 +136,7 @@ window.addEventListener("load", onPageLoad);
 
 
 monopoly.startGame = function() {
+	let div_board = document.querySelector(".board-wrapper .board");
 	// Hide components
 	$(".game-welcome").toggleDisplay(false, ["opacity", "height", "padding"]);
 	$(".player-selection").toggleDisplay(false, ["opacity", "height", "padding"]);
@@ -149,7 +151,7 @@ monopoly.startGame = function() {
 
 		if (!is_spectating) {
 			let player_id = parseInt(div_player.getAttribute("id")) - 1;
-			monopoly.players[player_id].spactating = false;
+			monopoly.players[player_id].spectating = false;
 			
 			let player_name = div_player.querySelector("input").value;
 			if (player_name.trim() !== "") {
@@ -178,10 +180,15 @@ monopoly.startGame = function() {
 	});
 	
 	monopoly.players.forEach(player => {
-		if (!player.spactating) {
+		if (!player.spectating) {
 			monopoly.placeToken(player);
 		}
 	});
+
+	
+	let span_current_name = document.querySelector(".info-game .active-player span.active-name");
+	span_current_name.textContent = monopoly.players[monopoly.current_player].name + " (#" + (monopoly.current_player + 1) + ")";
+	document.querySelector("aside").setAttribute("current-player", monopoly.current_player);
 }
 
 monopoly.dbGetPlayerStats = function(player_id, callback) {
@@ -224,16 +231,42 @@ monopoly.dbGetTiles = function(callback) {
 }
 
 monopoly.throwDice = function() {
+	let player = monopoly.players[monopoly.current_player];
+	let dice_result = monopoly.randomizeDice();
+	let target_tile_id = (player.tile + dice_result - 1) % monopoly.tiles.length;
+	console.log(target_tile_id);
+	let target_tile = monopoly.tiles[target_tile_id];
+
+	setTimeout(() => {
+		monopoly.moveToken(player, target_tile);
+		setTimeout(() => {
+			monopoly.setNextPlayer();
+		}, 1000);
+	}, 500);
+}
+
+monopoly.randomizeDice = function() {
 	let dice_result			= Math.floor((Math.random() * 6) + 1);
 	let div_dice			= document.querySelector(".dice-wrapper .dice");
-   
-	console.log(dice_result);
   
 	for (var i = 1; i <= 6; i++) {
 		div_dice.classList.remove("show-" + i);
 		if (dice_result === i) {
 			div_dice.classList.add("show-" + i);
 		}
+	}
+
+	return dice_result;
+}
+
+monopoly.setNextPlayer = function() {
+	monopoly.current_player = (monopoly.current_player + 1) % monopoly.players.length;
+	if (monopoly.players[monopoly.current_player].spectating) {monopoly.setNextPlayer();}
+	else {
+		let span_current_name = document.querySelector(".info-game .active-player span.active-name");
+		span_current_name.textContent = monopoly.players[monopoly.current_player].name + " (#" + (monopoly.current_player + 1) + ")";
+
+		document.querySelector("aside").setAttribute("current-player", monopoly.current_player);
 	}
 }
 
@@ -247,29 +280,62 @@ monopoly.placeToken = function(player) {
 	div_player.setAttribute("player-id", player.id);
 	div_player.setAttribute("tie-id", player.tile);
 	div_player.innerHTML = `
-		<img class="token" src="${player.avatar.path}" alt="player">
+		<img class="token" src="${player.avatar.path}" alt="${player.avatar.name}">
 	`;
 
 	player.token = div_player;
 	div_board.append(div_player);
 
 	monopoly.moveToken(player, tile)
-	
-
-	setTimeout(() => {
-		monopoly.moveToken(monopoly.players[0],  monopoly.tiles[9]);
-	}, 2000);
 }
 
 monopoly.moveToken = function(player, tile) {
 	let offset_top = tile.elem.offsetTop + tile.elem.offsetHeight * (player.id / monopoly.player_count);
 	let offset_left = tile.elem.offsetLeft + tile.elem.offsetWidth * 0.1;
-	$(player.token).animateMove(offset_top, offset_left)
+	$(player.token).animateMove(offset_top, offset_left, 750);
+
+	player.tile = tile.id;
 	
 	setTimeout(() => {
 		player.token.scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});
-	}, 1000);
+	}, 750);
 	
+}
+
+monopoly.showTileCard = function(tile_id) {
+	let tile = monopoly.tiles[tile_id-1];
+	if (!tile.cardElem) {
+
+		let colorDiv = "";
+		if (tile.color) {
+			colorDiv = `<div class="color" color="${tile.color}"></div>`;
+		}
+
+		let html_code = `
+			<div class="tile-card">
+				${colorDiv}
+				<div class="row"><h1 style="width:100%">${tile.name}</h1></div>
+				<div class="row">
+					<h2>Pourcentage du loyer</h2>
+					<h2>%${tile.rent_percentage}</h2>
+				</div>
+				<div class="row">
+					<h2>Valeur de revente</h2>
+					<h2>-%${tile.bank_sale}</h2>
+				</div>
+				<div class="row"><h2>€${tile.price}</h2></div>
+			</div>
+		`;
+
+		tile.cardElem = createElementFromHTML(html_code);
+		$(tile.cardElem).toggleDisplay(false, ["opacity", "width", "height"], 10);
+		document.body.append(tile.cardElem);
+
+		tile.cardElem.addEventListener("click", function() {
+			$(this).toggleDisplay(false, ["opacity", "width", "height"]);
+		});
+	}
+	$(tile.cardElem).toggleDisplay(true, ["opacity", "width", "height"]);
 }
 
 
