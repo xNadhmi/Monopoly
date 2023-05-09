@@ -320,10 +320,23 @@ monopoly.showTileCard = function(tile_id) {
 					<h2>%${tile.rent_percentage}</h2>
 				</div>
 				<div class="row">
-					<h2>Valeur de revente</h2>
+					<h2>Montant du loyer</h2>
+					<h2>€${Math.floor(tile.rent_percentage * tile.price / 100)}</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<h2>Perte de revente</h2>
 					<h2>-%${tile.bank_sale}</h2>
 				</div>
-				<div class="row"><h2>€${tile.price}</h2></div>
+				<div class="row">
+					<h2>Valeur de revente</h2>
+					<h2>€${Math.floor(tile.bank_sale * tile.price / 100)}</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<h2>Prix d'achat</h2>
+					<h2>€${tile.price}</h2>
+				</div>
 			</div>
 		`;
 
@@ -332,10 +345,10 @@ monopoly.showTileCard = function(tile_id) {
 		document.body.append(tile.cardElem);
 
 		tile.cardElem.addEventListener("click", function() {
-			$(this).toggleDisplay(false, ["opacity", "width", "height"]);
+			$(this).toggleDisplay(false, ["opacity", "zoom"]);
 		});
 	}
-	$(tile.cardElem).toggleDisplay(true, ["opacity", "width", "height"]);
+	$(tile.cardElem).toggleDisplay(true, ["opacity", "zoom"]);
 }
 
 
