@@ -47,7 +47,10 @@
 				<div class="description"><?php echo $tile["description"] ?></div>
 			<?php } ?>
 
-			<div class="price"><span class="money" unit="€"><?php echo $tile["price"] ?></span></div>
+
+			<?php if ($tile["price"] > 0) { ?>
+				<div class="price"><span class="money" unit="€"><?php echo $tile["price"] ?></span></div>
+			<?php } ?>
 		</div>
 
 		<?php if ($tile["type"] == "street") { ?>

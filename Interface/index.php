@@ -25,6 +25,7 @@
 	<?php include "../includes/ui-dashboard.php"; ?>
 	<main class="board-wrapper">
 		<div class="board">
+			<div class="preloader">Chargement du plateau</div>
 			<div class="tile center">
 				<div class="logo">
 					<div class="text">Monopoly</div>
@@ -43,13 +44,13 @@
 					<div class="text">HETIC</div>
 				</div>
 			</div>
-			<?php
+			<!-- <?php
 				$tiles = dbGetTiles();
 				
 				foreach ($tiles as $tile) {
 					include "../includes/ui-tile.php";
 				}
-			?>
+			?> -->
 		</div>
 	</main>
 
