@@ -87,6 +87,16 @@ CREATE TABLE IF NOT EXISTS cards (
 INSERT INTO cards (type, action, description, effect, value, target) VALUES
 	("chance", "Rendez-vous à la salle A105", NULL, "tile", 38, "current_player"),
 	("chance", "Avancer jusqu’à la case départ", NULL, "tile", 1, "current_player"),
-	("chance", "Rendez-vous à la salle C014", "Si vous passez par la case départ, recevez €200", "tile", 1, "current_player");
+	("chance", "Rendez-vous à la salle C014", "Si vous passez par la case départ, recevez €200", "tile", 1, "current_player"),
+	("community", "Vous avez reçu une contravention pour stationnement interdit", "Payez €20", "money", -20, "current_player"),
+	("community", "Vous avez perdu votre portefeuille", "Payez €25 pour remplacer vos cartes d'identité et vos cartes de crédit.", "money", -25, "current_player"),
+	("chance", "Vous avez obtenu une bourse d'études", "Recevez €150", "money", 150, "current_player"),
+	("chance", "Vous avez réussi votre examen de conduite et pouvez maintenant conduire à l'école", "Recevez €50", "money", 50, "current_player"),
+	("community", "Vous avez manqué le train et avez dû prendre un taxi pour arriver à temps", "Payez €15", "money", -15, "current_player"),
+	("community", "Vous avez été en retard pour un examen et avez dû payer une amende pour être admis(e) en classe", "Payez €50", "money", -50, "current_player"),
+	("chance", "Vous avez été élu(e) délégué(e)", "Recevez €100", "money", 100, "current_player"),
+	("chance", "Vous avez été transféré(e) dans une classe plus avancée", "Avancez de deux cases", "position", 2, "current_player"),
+	("chance", "Vous avez échoué un examen important", "Reculez de trois cases", "position", -3, "current_player"),
+	("chance", "Erreur de la comptabilte en votre faveur.", " Recevez €200", "money", 200, "current_player");
 
 
