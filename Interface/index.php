@@ -12,6 +12,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Monopoly</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="/js/jquery/jquery-3.6.3.min.js"></script>
+
+	<!-- Common JS -->
+	<script type="text/javascript" src="/js/main.js"></script>
+	
 </head>
 
 <body>

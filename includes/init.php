@@ -73,4 +73,16 @@
 
 		return $tiles;
 	}
+	
+	function dbGetPlayerStats($id) {
+		global $pdo;
+		
+		$query = "SELECT * FROM players WHERE id = '$id'";
+		$stmt = $pdo->prepare($query);
+		$stmt->execute();
+
+		$player = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		return $player;
+	}
 ?>
